@@ -92,11 +92,16 @@ imgmainEl.src=states.image
 imgmainEl.width=300
 let h3mainEl= document.createElement("h3")
 h3mainEl.textContent=states.name
-let paminEl= document.createElement("p")
+let paminEl= document.createElement("span")
+
+if(states.discountedPrice){
+paminEl.textContent=(`£${states.price} £${states.discountedPrice}`)
+}
+else
 paminEl.textContent=(`£${states.price}`)
 
-let discountmainEl= document.createElement("p")
-divmainEl.append(imgmainEl, h3mainEl, paminEl, discountmainEl)
+
+divmainEl.append(imgmainEl, h3mainEl, paminEl)
 divmain1El.append(divmainEl)
 }
 mainEl.append(h2mainEl, divmain1El)
