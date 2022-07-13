@@ -10,10 +10,13 @@ type Item= {
     stock: number;
 }
 type State= {
-    item:Item[]
+    item:Item[],
+    clikedItem: null | Item[]
+
 }
 let state:State= {
-    item: []
+    item: [],
+    clikedItem: null
 }
 function getItemFromServer(){
 fetch('http://localhost:3005/store')
@@ -92,16 +95,20 @@ imgmainEl.src=states.image
 imgmainEl.width=300
 let h3mainEl= document.createElement("h3")
 h3mainEl.textContent=states.name
+ let divspan=document.createElement("div")
+ div1El.className=("price")
 let paminEl= document.createElement("span")
-
+let paminEl2= document.createElement("span")
 if(states.discountedPrice){
-paminEl.textContent=(`£${states.price} £${states.discountedPrice}`)
+    paminEl.className=("span price")
+paminEl.textContent=(`£${states.price} `)
+paminEl2.className=("discount")
+paminEl2.textContent=(` £${states.discountedPrice}`)
 }
 else
 paminEl.textContent=(`£${states.price}`)
-
-
-divmainEl.append(imgmainEl, h3mainEl, paminEl)
+divspan.append(paminEl,paminEl2)
+divmainEl.append(imgmainEl, h3mainEl, divspan)
 divmain1El.append(divmainEl)
 }
 mainEl.append(h2mainEl, divmain1El)

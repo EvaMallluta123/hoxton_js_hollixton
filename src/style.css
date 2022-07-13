@@ -41,4 +41,15 @@ gap: 3rem;
     grid-template-columns:1fr 1fr 1fr;
 
   }
+  .price{
+    display: inline;
+  }
+  .span.price{
+color:rgb(170, 163, 163);
+text-decoration: line-through;
+
+  }
+  .discount{
+    color:red;
+  }
  
