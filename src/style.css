@@ -24,4 +24,14 @@ gap: 3rem;
     display: grid;
    padding-left: 500px;
   }
+
+  .main__item{
+    display: grid;
+    grid-template-columns: 1fr main 1fr;
+    border: 1px solid black;
+  }
+  main{
+    display: grid;
+    grid-auto-columns: 1fr main 1fr;
+  }
  

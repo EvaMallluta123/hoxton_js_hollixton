@@ -1,13 +1,35 @@
 import './style.css'
 let state = {
-
+    item: [
+        {
+          id: 1,
+          type: "Guys",
+          name: "Crewneck T-Shirt 3-Pack",
+          image: "https://img.hollisterco.com/is/image/anf/KIC_324-1085-0123-100_prod1",
+          price: 40,
+          discountedPrice: 21.99,
+          dateEntered: "2021/08/10",
+          stock: 10
+        },
+        {
+          id: 2,
+          type: "Girls",
+          name: "Smocked Tiered Mini Dress",
+          image: "https://img.hollisterco.com/is/image/anf/KIC_359-1220-1911-805_prod1",
+          price: 29,
+          dateEntered: "2021/07/10",
+          stock: 5
+        } 
+    ]
 }
 function render(){
 
-let headerEl= document.querySelector(".header") 
-if(headerEl===null) return
-headerEl.textContent=``
+let body= document.querySelector("body") 
+if(body===null) return
+body.textContent=``
+let headerEl= document.createElement("header")
 let div1El= document.createElement("div")
+headerEl.className=("header")
 div1El.className=("header__left")
 let h3El= document.createElement("h3")
 h3El.className=("hollixton__logo")
@@ -52,7 +74,30 @@ img3El.alt="Bag icon"
 li23El.append(img3El)
 ul2El.append(li21El, li22El, li23El)
  div2El.append(ul2El)
- headerEl.append( div1El, div2El)
+ headerEl.append(div1El, div2El)
+
+
+let mainEl= document.createElement("main")
+let h2mainEl= document.createElement("h2")
+h2mainEl.textContent=("Home")
+let divmain1El= document.createElement("div")
+for (let states of state.item){
+let divmainEl= document.createElement("div")
+divmainEl.className=("main__item")
+let imgmainEl= document.createElement("img")
+imgmainEl.src=states.image
+imgmainEl.width=300
+let h3mainEl= document.createElement("h3")
+h3mainEl.textContent=states.name
+let paminEl= document.createElement("p")
+paminEl.textContent=(`£ ${states.price}`)
+
+let discountmainEl= document.createElement("p")
+divmainEl.append(imgmainEl, h3mainEl, paminEl, discountmainEl)
+divmain1El.append(divmainEl)
+}
+mainEl.append(h2mainEl, divmain1El)
+body.append(headerEl, mainEl)
 
 }
 
