@@ -10,6 +10,10 @@ header{
   padding-top: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(209, 204, 198);
 }
 .header__left{
   display: grid;
@@ -27,11 +31,14 @@ gap: 3rem;
 
   .main__item{
     display: grid;
-    grid-template-columns: 1fr main 1fr;
-    border: 1px solid black;
+    grid-template-rows: auto auto auto;
+    border: 1px solid rgb(214, 212, 212);
+    gap:1rem;
+   margin-top: 60px;
   }
   main{
     display: grid;
-    grid-auto-columns: 1fr main 1fr;
+    grid-template-columns:1fr 1fr 1fr;
+
   }
  
